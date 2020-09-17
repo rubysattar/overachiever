@@ -1,0 +1,8 @@
+:local(.navbarBackground) {
+    /* margin: 1rem auto; */
+    margin: auto;
+    position: relative;
+    transition: 1.5s ease;
+    -webkit-transition: 1.5s ease;
+    background-color: #C1A9D4;
+  }

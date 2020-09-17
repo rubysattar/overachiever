@@ -10,6 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
 import HomeView from '../Home/Home'
+import Decks from '../routes/Decks'
 
 class App extends Component {
   constructor () {
@@ -17,9 +18,12 @@ class App extends Component {
 
     this.state = {
       user: null,
+      decks: [],
       msgAlerts: []
     }
   }
+
+  // setDeck = cart => this.setState({ decks })
 
   setUser = user => this.setState({ user })
 
@@ -59,6 +63,9 @@ class App extends Component {
           <Route exact path='/' render={() => (
             <HomeView />
           )} />
+          <AuthenticatedRoute user={user} exact path='/decks' render={() => (
+            <Decks user={user} setDeck={this.setDeck}/>
+          )}/>
         </main>
       </Fragment>
     )
