@@ -10,7 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
 import HomeView from '../Home/Home'
-import Decks from '../routes/Decks'
+import Decks from '../Decks/AllDecks'
 
 class App extends Component {
   constructor () {
