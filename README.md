@@ -17,7 +17,8 @@ This application allows users to create, read, update and delete flash cards to 
 
 ## Planning
 When brainstorming about this project, I considered that I wanted to experiment with using Django and Python on my back-end, so I wanted a fairly simple project concept with which to work. I kept with the theme of a majority of my projects (education) and thought of something I would want to use in a learning environment: flash cards! To plan out the nitty gritty of the front-end, I used a an online Miro board, a physical white board, Figma online, and regular old post-its.
-![Planning](https://imgur.com/Bax5P1E)
+---
+[Planning](https://imgur.com/Bax5P1E)
 ---
 
 ## User Stories
@@ -67,7 +68,9 @@ DELETE | /sign-out
 
 ## Images
 #### Wireframes:
-![wireframes](https://imgur.com/5FcImgH)
+---
+[Wireframes](https://imgur.com/5FcImgH)
 ---
 #### ERD:
-![ERD and User Stories](https://imgur.com/tOQRNyn)
+---
+[ERD and User Stories](https://imgur.com/tOQRNyn)
