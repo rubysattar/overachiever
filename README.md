@@ -60,7 +60,7 @@ POST | /sign-up
 PATCH | /change-pw
 DELETE | /sign-out
 
-## Unsolves Problems
+## Unsolved Problems
 - Still need to...
 - Would eventually like to ...
 
@@ -69,3 +69,5 @@ DELETE | /sign-out
 - [Wireframes](https://imgur.com/5FcImgH)
 #### ERD:
 - [ERD and User Stories](https://imgur.com/tOQRNyn)
+#### App screenshots:
+- []()
