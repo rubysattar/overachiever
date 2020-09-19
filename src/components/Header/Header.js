@@ -8,6 +8,7 @@ const authenticatedOptions = (
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
     <Nav.Link href="#decks">My decks</Nav.Link>
+    {/* <Nav.Link href="#decks-create">Create Decks</Nav.Link> */}
   </Fragment>
 )
 

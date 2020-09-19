@@ -16,6 +16,8 @@ import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import messages from '../AutoDismissAlert/messages'
 
+// import DecksCreate from './DecksCreate'
+
 // Decks index component
 // show all decks
 class Decks extends Component {
@@ -68,6 +70,9 @@ class Decks extends Component {
       <Fragment>
         <div className='container'>
           <div className='row'>
+            <Link to='/decks-create'><button>Create a Deck</button></Link>
+          </div>
+          <div className='row'>
             {decks}
           </div>
         </div>
@@ -75,5 +80,5 @@ class Decks extends Component {
     )
   }
 }
-
+// future - wanting to add a create deck button above all decks render
 export default Decks

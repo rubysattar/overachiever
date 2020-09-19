@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 
 import HomeView from '../Home/Home'
 import Decks from '../Decks/AllDecks'
+import DecksCreate from '../Decks/DecksCreate'
 
 class App extends Component {
   constructor () {
@@ -66,6 +67,9 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/decks' render={() => (
             <Decks user={user} setDeck={this.setDeck}/>
           )}/>
+          <AuthenticatedRoute user={user} path='/decks-create' render={({ match }) => (
+            <DecksCreate user={user} match={match}/>
+          )} />
         </main>
       </Fragment>
     )
