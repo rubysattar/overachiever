@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
-import Form from 'react-bootstrap/Form'
+// import Form from 'react-bootstrap/Form'
+import UpdateDecksForm from './UpdateDecksForm'
 
-// import updateDeleteDeckForm from './updateDeleteDeckForm'
 import messages from '../AutoDismissAlert/messages'
 
 class DeckUpdate extends Component {
@@ -48,7 +48,7 @@ class DeckUpdate extends Component {
     this.setState(prevState => {
       const updatedField = { [event.target.name]: event.target.value }
 
-      const editedDeck = Object.assign({}, prevState.item, updatedField)
+      const editedDeck = Object.assign({}, prevState.deck, updatedField)
       return { deck: editedDeck }
     })
   }
@@ -62,14 +62,15 @@ class DeckUpdate extends Component {
       method: 'PATCH',
       data: {
         deck: {
-          topic: this.state.deck.topic
+          topic: this.state.topic
         }
       },
       headers: {
         'Authorization': `Token ${this.props.user.token}`
       }
     })
-      .then(res => this.setState({ edited: true }))
+      .then(() => this.setState({ edited: true }))
+      .then(res => this.setState({ deck: res.data.deck }))
       .then(() => msgAlert({
         heading: 'Edited your deck successfully!',
         message: messages.editedDeckSuccess,
@@ -82,12 +83,12 @@ class DeckUpdate extends Component {
     const { deck, edited } = this.state
     // pass in edited above if you will use this component to edit too
     const { handleChange, handleSubmit } = this
-    const cancelPath = (`/books/${this.props.match.params.id}`)
+    // const cancelPath = (`/books/${this.props.match.params.id}/`)
 
     if (edited) {
     //   return <Redirect to={`/decks/${createdId}`} />
     // } else if (edited) {
-      return <Redirect to={{ pathname: `/decks/${this.props.match.params.id}` }} />
+      return <Redirect to={{ pathname: `/decks/${this.props.match.params.id}/` }} />
     }
     // const UpdateDeleteDeckForm = ( deck, updateDeck, handleChange, destroyDeck, cancelPath ) => (
     //   <div className="edits">
@@ -97,21 +98,16 @@ class DeckUpdate extends Component {
 
     return (
       <div>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="exampleForm.ControlTextArea1">
-            <h4>{deck.topic}</h4><br/>
-            <Form.Label>Edit this deck</Form.Label>
-            <Form.Control as="textarea" rows="3" value={deck.topic} name='topic' onChange={handleChange}/>
-          </Form.Group>
-          <button type='submit'>Submit Changes</button>
-          <Link to={cancelPath}>
-            <button>Cancel</button>
-          </Link><br/>
-          <Link to='/decks/'>Back to all decks</Link>
-        </Form>
+        <h4>{deck.topic}</h4>
+        <UpdateDecksForm
+          deck={deck}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          cancelPath={(`/books/${this.props.match.params.id}/`)}
+        />
       </div>
     )
   }
 }
 
-export default DeckUpdate
+export default withRouter(DeckUpdate)

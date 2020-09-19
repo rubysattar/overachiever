@@ -24,7 +24,7 @@ class DecksCreate extends Component {
     this.setState(prevState => {
       const updatedField = { [event.target.name]: event.target.value }
 
-      const editedDeck = Object.assign({}, prevState.item, updatedField)
+      const editedDeck = Object.assign({}, prevState.deck, updatedField)
       return { deck: editedDeck }
     })
   }
@@ -33,6 +33,7 @@ class DecksCreate extends Component {
     event.preventDefault()
     const { msgAlert } = this.props
     const { deck } = this.state
+    // CREATE A NEW DECK
     axios({
       url: `${apiUrl}/decks/`,
       method: 'POST',
@@ -48,37 +49,6 @@ class DecksCreate extends Component {
         message: messages.addToDeckSuccess,
         variant: 'success'
       }))
-    //   .then(res => {
-    //     const deck = res.data.decks.find((element) => {
-    //       return element.topic === this.state.deck.topic
-    //     })
-    //     if (deck) {
-    //       return axios({
-    //         url: (`${apiUrl}/decks/${deck._id}`),
-    //         method: 'PATCH',
-    //         headers: {
-    //           'Authorization': `Token ${this.props.user.token}`
-    //         },
-    //         data: { deck: this.state.deck }
-    //       })
-    //     } else {
-    //       return axios({
-    //         url: (`${apiUrl}/decks`),
-    //         method: 'POST',
-    //         headers: {
-    //           'Authorization': `Token ${this.props.user.token}`
-    //         },
-    //         data: { deck: this.state.deck }
-    //       })
-    //     }
-    //   })
-    //   .then((res) => {
-    //     if (res.status === 201) {
-    //       this.setState({ createdId: res.data.deck._id })
-    //     } else if (res.status === 204) {
-    //       this.setState({ edited: true })
-    //     }
-    //   })
       .catch(console.error)
   }
 

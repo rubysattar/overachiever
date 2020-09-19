@@ -26,7 +26,7 @@ class App extends Component {
     }
   }
 
-  // setDeck = cart => this.setState({ decks })
+  // setDeck = () => this.setState({ decks })
 
   setUser = user => this.setState({ user })
 
@@ -67,16 +67,16 @@ class App extends Component {
             <HomeView />
           )} />
           <AuthenticatedRoute user={user} exact path='/decks' render={() => (
-            <Decks user={user} setDeck={this.setDeck}/>
+            <Decks user={user} setDeck={this.setDeck} msgAlert={this.msgAlert}/>
           )}/>
           <AuthenticatedRoute user={user} exact path='/decks-create' render={({ match }) => (
-            <DecksCreate user={user} match={match}/>
+            <DecksCreate user={user} match={match} msgAlert={this.msgAlert}/>
           )} />
           <AuthenticatedRoute user={user} exact path='/decks/:id/deck-update' render={({ match }) => (
-            <DeckUpdate user={user} match={match}/>
+            <DeckUpdate user={user} match={match} msgAlert={this.msgAlert} setDeck={this.setDeck}/>
           )} />
           <AuthenticatedRoute user={user} exact path='/decks/:id' render={({ match }) => (
-            <Deck user={user} match={match}/>
+            <Deck user={user} match={match} msgAlert={this.msgAlert} setDeck={this.setDeck}/>
           )} />
         </main>
       </Fragment>

@@ -2,15 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 
-const CreateDecksForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
-  <div className="create-form">
+const UpdateDeckForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
+  <div className='update-form'>
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="exampleForm.ControlTextArea1">
-        <h4>Create a Deck!</h4><br/>
-        <Form.Label>New Deck Topic</Form.Label>
+        <h4>{deck.topic}</h4><br/>
+        <Form.Label>Edit this deck</Form.Label>
         <Form.Control as="textarea" rows="3" value={deck.topic} name='topic' onChange={handleChange}/>
       </Form.Group>
-      <button type='submit'>Submit</button>
+      <button type='submit'>Submit Changes</button>
       <Link to={cancelPath}>
         <button>Cancel</button>
       </Link><br/>
@@ -18,4 +18,5 @@ const CreateDecksForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
     </Form>
   </div>
 )
-export default CreateDecksForm
+
+export default UpdateDeckForm

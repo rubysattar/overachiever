@@ -32,12 +32,12 @@ class Deck extends Component {
       method: 'GET',
       headers: {
         'Authorization': `Token ${this.props.user.token}`
-      },
-      data: { deck: this.state.deck }
+      }
     })
+    // data: { deck: this.state.deck }
       .then(res => console.log('THIS IS THE', res.data.deck))
       // .then(res => this.state.data.concat([ data ]))
-      .then(res => this.setState({ deck: res.data.deck }))
+      // .then(res => this.setState({ deck: res.data.deck }))
       .then(() => msgAlert({
         heading: 'Success!',
         message: messages.showDeckSuccess,
@@ -63,37 +63,37 @@ class Deck extends Component {
     })
   }
 
-  updateDeck = (editedTopic) => {
-    const { msgAlert } = this.props
-    // this.setState({ redirected: true })
-    return axios({
-      url: `${apiUrl}/decks/${this.props.user.token}/`,
-      method: 'PATCH',
-      data: {
-        deck: {
-          topic: editedTopic
-        }
-      },
-      headers: {
-        'Authorization': `Token ${this.props.user.token}`
-      }
-    })
-      .then(res => this.props.setDeck(res.data.deck))
-      .then(() => msgAlert({
-        heading: 'Edited deck successfully!',
-        message: messages.editedDeckSuccess,
-        variant: 'success'
-      }))
-      .catch(error => msgAlert({
-        heading: 'Could not edit because: ' + error.message,
-        message: messages.editedDeckFailure,
-        variant: 'danger'
-      })
-      )
-  }
+  // updateDeck = (editedTopic) => {
+  //   const { msgAlert } = this.props
+  //   // this.setState({ redirected: true })
+  //   return axios({
+  //     url: `${apiUrl}/decks/${this.props.user.token}/`,
+  //     method: 'PATCH',
+  //     data: {
+  //       deck: {
+  //         topic: editedTopic
+  //       }
+  //     },
+  //     headers: {
+  //       'Authorization': `Token ${this.props.user.token}`
+  //     }
+  //   })
+  //     .then(res => this.props.setDeck(res.data.deck))
+  //     .then(() => msgAlert({
+  //       heading: 'Edited deck successfully!',
+  //       message: messages.editedDeckSuccess,
+  //       variant: 'success'
+  //     }))
+  //     .catch(error => msgAlert({
+  //       heading: 'Could not edit because: ' + error.message,
+  //       message: messages.editedDeckFailure,
+  //       variant: 'danger'
+  //     })
+  //     )
+  // }
 
   destroyDeck = (deck) => {
-    // const { msgAlert } = this.props
+    const { msgAlert } = this.props
     axios({
       url: `${apiUrl}/decks/${this.props.match.params.id}/`,
       method: 'DELETE',
@@ -103,11 +103,11 @@ class Deck extends Component {
     })
       // update the `deleted` state to be `true`
       .then(() => this.setState({ deleted: true }))
-      // .then(() => msgAlert({
-      //   heading: `Deleted ${deck.topic} successfully!`,
-      //   message: messages.deleteDeckSuccess,
-      //   variant: 'success'
-      // }))
+      .then(() => msgAlert({
+        heading: `Deleted ${deck.topic} successfully!`,
+        message: messages.deleteDeckSuccess,
+        variant: 'success'
+      }))
       .then(console.log('DELETED THE BOOK'))
       .then(res => {
         this.props.history.push('/decks')
@@ -117,14 +117,10 @@ class Deck extends Component {
 
   render () {
     // .map can only be used on an array, not an object.
-    const singleDeck = this.props > 0
-      ? this.state.deck.map(deck => (
-        <Card key={deck.id} className='col-sm-4'>
-          <Card.Title>
-            {deck.topic}
-          </Card.Title>
-        </Card>
-      )) : <span></span>
+    // const singleDeck = this.props > 0
+    //   ? this.state.deck.map(deck => (
+
+    //   )) : <span></span>
     const { deck, deleted } = this.state
 
     if (!deck) {
@@ -133,7 +129,7 @@ class Deck extends Component {
 
     // if the deleted state is true
     if (deleted) {
-      console.log('REACHED LINE 128 OF DECK.JS')
+      // console.log('REACHED LINE 128 OF DECK.JS')
       return <Redirect to={{
         // Redirect to the home page ('/')
         pathname: '/decks',
@@ -152,13 +148,18 @@ class Deck extends Component {
     // </div>
 
     // <Link to={`/decks/${this.props.match.params.id}/deck-delete`}><button>Delete this deck</button></Link>
+    // {singleDeck}
     return (
       <Fragment>
-        <div className='container' key={this.state.deck.id}>
+        <div className='container deck' key={deck.id}>
           <div className='row'>
-            {singleDeck}
-            <Link to='/deck-update'><button>Update this deck</button></Link>
-            <button onClick={this.destroyDeck}></button>
+            <Card className='col-sm-4'>
+              <Card.Title>
+                {deck.topic}
+              </Card.Title>
+            </Card>
+            <Link to='decks/:id/deck-update'><button>Update this deck</button></Link>
+            <button onClick={this.destroyDeck}>Delete this deck</button>
           </div>
         </div>
       </Fragment>
