@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import React, { Component, Fragment } from 'react'
+import { Link, Redirect, withRouter } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
+import Card from 'react-bootstrap/Card'
+// import UpdateDeleteDeckForm from './updateDeleteDeckForm'
 // import { showDeck, deleteDeck, editDeck } from '../../api/DecksApi'
 
 // Import axios so we can make HTTP requests
@@ -11,10 +13,11 @@ class Deck extends Component {
   constructor (props) {
     // this makes sure that `this.props` is set in the constructor
     super(props)
-
     this.state = {
       // Initially, our deck state will be null, until the API request finishes
-      deck: null,
+      deck: {
+        topic: ''
+      },
       // initially this deck has not been deleted yet
       deleted: false,
       updated: false
@@ -22,16 +25,19 @@ class Deck extends Component {
     // redirect: false -- removed from state, can put back in if needed
   }
   componentDidMount () {
+    console.log(this.props.match.params.id)
     const { msgAlert } = this.props
     axios({
-      url: `${apiUrl}/decks/${this.props.match.params.id}`,
+      url: `${apiUrl}/decks/${this.props.match.params.id}/`,
       method: 'GET',
       headers: {
         'Authorization': `Token ${this.props.user.token}`
       },
       data: { deck: this.state.deck }
     })
-      .then(res => this.setState({ item: res.data.item }))
+      .then(res => console.log('THIS IS THE', res.data.deck))
+      // .then(res => this.state.data.concat([ data ]))
+      .then(res => this.setState({ deck: res.data.deck }))
       .then(() => msgAlert({
         heading: 'Success!',
         message: messages.showDeckSuccess,
@@ -47,14 +53,49 @@ class Deck extends Component {
       .catch(console.error)
   }
 
-  handleClick = () => {
-    this.setState({ redirected: true })
+  handleChange = event => {
+    event.persist()
+    this.setState(prevState => {
+      const updatedField = { [event.target.name]: event.target.value }
+
+      const editedDeck = Object.assign({}, prevState.item, updatedField)
+      return { deck: editedDeck }
+    })
   }
 
-  destroyDeck = () => {
+  updateDeck = (editedTopic) => {
     const { msgAlert } = this.props
+    // this.setState({ redirected: true })
+    return axios({
+      url: `${apiUrl}/decks/${this.props.user.token}/`,
+      method: 'PATCH',
+      data: {
+        deck: {
+          topic: editedTopic
+        }
+      },
+      headers: {
+        'Authorization': `Token ${this.props.user.token}`
+      }
+    })
+      .then(res => this.props.setDeck(res.data.deck))
+      .then(() => msgAlert({
+        heading: 'Edited deck successfully!',
+        message: messages.editedDeckSuccess,
+        variant: 'success'
+      }))
+      .catch(error => msgAlert({
+        heading: 'Could not edit because: ' + error.message,
+        message: messages.editedDeckFailure,
+        variant: 'danger'
+      })
+      )
+  }
+
+  destroyDeck = (deck) => {
+    // const { msgAlert } = this.props
     axios({
-      url: `${apiUrl}/items/${this.props.match.params.id}`,
+      url: `${apiUrl}/decks/${this.props.match.params.id}/`,
       method: 'DELETE',
       headers: {
         'Authorization': `Token ${this.props.user.token}`
@@ -62,23 +103,29 @@ class Deck extends Component {
     })
       // update the `deleted` state to be `true`
       .then(() => this.setState({ deleted: true }))
-      .then(() => msgAlert({
-        heading: 'Deleted Deck Successfully',
-        message: messages.deleteDeckSuccess,
-        variant: 'success'
-      }))
-      .catch(error => {
-        msgAlert({
-          heading: 'Delete Deck Failure' + error.message,
-          message: messages.deleteDeckFailure,
-          variant: 'danger'
-        })
+      // .then(() => msgAlert({
+      //   heading: `Deleted ${deck.topic} successfully!`,
+      //   message: messages.deleteDeckSuccess,
+      //   variant: 'success'
+      // }))
+      .then(console.log('DELETED THE BOOK'))
+      .then(res => {
+        this.props.history.push('/decks')
       })
+      .catch(console.error())
   }
 
   render () {
+    // .map can only be used on an array, not an object.
+    const singleDeck = this.props > 0
+      ? this.state.deck.map(deck => (
+        <Card key={deck.id} className='col-sm-4'>
+          <Card.Title>
+            {deck.topic}
+          </Card.Title>
+        </Card>
+      )) : <span></span>
     const { deck, deleted } = this.state
-will need to pass in 'redirected' above if I use that state
 
     if (!deck) {
       return <p>Loading...</p>
@@ -86,6 +133,7 @@ will need to pass in 'redirected' above if I use that state
 
     // if the deleted state is true
     if (deleted) {
+      console.log('REACHED LINE 128 OF DECK.JS')
       return <Redirect to={{
         // Redirect to the home page ('/')
         pathname: '/decks',
@@ -93,26 +141,29 @@ will need to pass in 'redirected' above if I use that state
       }} />
     }
 
-    if (redirected) {
-      return <Redirect to={{ pathname: '/decks' }} />
-    }
+    // if (redirected) {
+    //   return <Redirect to={{ pathname: '/decks' }} />
+    // }
 
+    // below was remved from Fragment in return
+    //   <div className='row'>
+    //     {this.state.deck.topic}
+    //   </div>
+    // </div>
+
+    // <Link to={`/decks/${this.props.match.params.id}/deck-delete`}><button>Delete this deck</button></Link>
     return (
-      <div className="deck">
-        <h7>{deck.topic}</h7><br/>
-        <p> </p>
-        <p>owner: {deck.owner.email}</p>
-        <p>cards: {deck.cards}</p>
-        <button onClick={this.handleClick}>Edit</button>
-        <button onClick={this.destroyDeck}>Delete</button><br/>
-        {/* <Link to={`/items/${this.props.match.params.id}/update`}>
-          <button>Update</button>
-        </Link> */}
-        <p></p><br/>
-        <Link to='/decks/'>Back to all decks</Link>
-      </div>
+      <Fragment>
+        <div className='container' key={this.state.deck.id}>
+          <div className='row'>
+            {singleDeck}
+            <Link to='/deck-update'><button>Update this deck</button></Link>
+            <button onClick={this.destroyDeck}></button>
+          </div>
+        </div>
+      </Fragment>
     )
   }
 }
 
-export default Deck
+export default withRouter(Deck)

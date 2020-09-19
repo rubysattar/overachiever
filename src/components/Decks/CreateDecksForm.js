@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 
-const DecksForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
+const CreateDecksForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
   <div className="edits">
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="exampleForm.ControlTextArea1">
@@ -18,4 +18,4 @@ const DecksForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
     </Form>
   </div>
 )
-export default DecksForm
+export default CreateDecksForm

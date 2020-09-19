@@ -11,6 +11,8 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 
 import HomeView from '../Home/Home'
 import Decks from '../Decks/AllDecks'
+import Deck from '../Decks/Deck'
+import DeckUpdate from '../Decks/DeckUpdate'
 import DecksCreate from '../Decks/DecksCreate'
 
 class App extends Component {
@@ -67,8 +69,14 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/decks' render={() => (
             <Decks user={user} setDeck={this.setDeck}/>
           )}/>
-          <AuthenticatedRoute user={user} path='/decks-create' render={({ match }) => (
+          <AuthenticatedRoute user={user} exact path='/decks-create' render={({ match }) => (
             <DecksCreate user={user} match={match}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/decks/:id/deck-update' render={({ match }) => (
+            <DeckUpdate user={user} match={match}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/decks/:id' render={({ match }) => (
+            <Deck user={user} match={match}/>
           )} />
         </main>
       </Fragment>

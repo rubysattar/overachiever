@@ -10,5 +10,9 @@ export default {
   indexDecks: 'Try selecting one to view the cards in that deck.',
   addToDecksSuccess: 'You just added a new deck!',
   showDeckSuccess: 'Here\'s the deck you selected!',
-  showDeckFailure: 'Whoops! Couldn\'t get the deck to show!'
+  showDeckFailure: 'Whoops! Couldn\'t get the deck to show!',
+  editedDeckSuccess: 'You just edited your deck!',
+  editedDeckFailure: 'Your edit did not go through. Sorry.',
+  deleteDeckSuccess: 'Your deck was deleted.',
+  deleteDeckFailure: 'Your deck could not be deleted.'
 }

@@ -3,7 +3,7 @@ import apiUrl from '../../apiConfig'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
-import DecksForm from './DecksForm'
+import CreateDecksForm from './CreateDecksForm'
 import messages from '../AutoDismissAlert/messages'
 
 class DecksCreate extends Component {
@@ -95,7 +95,7 @@ class DecksCreate extends Component {
 
     return (
       <div>
-        <DecksForm
+        <CreateDecksForm
           deck={deck}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
