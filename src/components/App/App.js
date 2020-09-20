@@ -26,7 +26,7 @@ class App extends Component {
     }
   }
 
-  // setDeck = () => this.setState({ decks })
+  setDeck = (deckId) => this.setState({ deckId })
 
   setUser = user => this.setState({ user })
 

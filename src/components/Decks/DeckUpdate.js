@@ -59,13 +59,13 @@ class DeckUpdate extends Component {
     event.preventDefault()
     const { msgAlert } = this.props
     // const { edited } = this.state
+    // debugger;
+    // console.log('LINE 63 OF DECKUPDATE.JS', this.state)
     axios({
       url: `${apiUrl}/decks/${this.props.match.params.id}/`,
       method: 'PATCH',
       data: {
-        deck: {
-          topic: this.state.topic
-        }
+        deck: this.state.deck
       },
       headers: {
         'Authorization': `Token ${this.props.user.token}`

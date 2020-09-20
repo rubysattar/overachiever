@@ -149,17 +149,19 @@ class Deck extends Component {
 
     // <Link to={`/decks/${this.props.match.params.id}/deck-delete`}><button>Delete this deck</button></Link>
     // {singleDeck}
+
+    // Pass the deck object as a prop from (??? the route?) so that I can do something like {deck.topic}
     return (
       <div className='container deck-page' key={deck.id}>
         <div className='row'>
           <Card>
             <Card.Title className='col-sm-12'>
-              <h4>{deck.topic}</h4>
+              {/* <h4>{this.props.setDeck.params.topic}</h4> */}
             </Card.Title>
           </Card>
         </div>
         <div className='row'>
-          <Link className='col-sm-6' to='/decks/:id/deck-update'><button >Update this deck</button></Link>
+          <Link className='col-sm-6' to={`/decks/${this.props.match.params.id}/deck-update`}><button >Update this deck</button></Link>
           <button onClick={this.destroyDeck} className='col-sm-6'>Delete this deck</button>
         </div>
       </div>
