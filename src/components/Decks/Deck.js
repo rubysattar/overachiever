@@ -151,14 +151,14 @@ class Deck extends Component {
     // {singleDeck}
     return (
       <Fragment>
-        <div className='container deck' key={deck.id}>
+        <div className='container deck-page' key={deck.id}>
           <div className='row'>
             <Card className='col-sm-4'>
               <Card.Title>
                 {deck.topic}
               </Card.Title>
             </Card>
-            <Link to='decks/:id/deck-update'><button>Update this deck</button></Link>
+            <Link to='/decks/:id/deck-update'><button>Update this deck</button></Link>
             <button onClick={this.destroyDeck}>Delete this deck</button>
           </div>
         </div>

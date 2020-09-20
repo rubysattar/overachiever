@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 // import Form from 'react-bootstrap/Form'
-import UpdateDecksForm from './UpdateDecksForm'
+import UpdateDeckForm from './UpdateDecksForm'
 
 import messages from '../AutoDismissAlert/messages'
 
@@ -25,10 +25,12 @@ class DeckUpdate extends Component {
       method: 'GET',
       headers: {
         'Authorization': `Token ${this.props.user.token}`
-      },
-      data: { deck: this.state.deck }
+      }
     })
-      .then(res => this.setState({ deck: { topic: res.data.deck.topic } }))
+    // data: { deck: this.state.deck }
+    //   .then(res => this.setState({ deck: { topic: res.data.deck.topic } }))
+      .then(res => console.log('THIS IS THE', res.data.deck))
+
       .then(() => msgAlert({
         heading: 'Success!',
         message: messages.showDeckSuccess,
@@ -86,26 +88,21 @@ class DeckUpdate extends Component {
     // const cancelPath = (`/books/${this.props.match.params.id}/`)
 
     if (edited) {
-    //   return <Redirect to={`/decks/${createdId}`} />
-    // } else if (edited) {
       return <Redirect to={{ pathname: `/decks/${this.props.match.params.id}/` }} />
     }
-    // const UpdateDeleteDeckForm = ( deck, updateDeck, handleChange, destroyDeck, cancelPath ) => (
-    //   <div className="edits">
-
-    //   </div>
-    // )
 
     return (
-      <div>
-        <h4>{deck.topic}</h4>
-        <UpdateDecksForm
-          deck={deck}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          cancelPath={(`/books/${this.props.match.params.id}/`)}
-        />
-      </div>
+      <Fragment>
+        <div className='update-page'>
+          <h4>{deck.topic}</h4>
+          <UpdateDeckForm
+            deck={deck}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            cancelPath={(`/books/${this.props.match.params.id}/`)}
+          />
+        </div>
+      </Fragment>
     )
   }
 }

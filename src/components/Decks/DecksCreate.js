@@ -64,7 +64,7 @@ class DecksCreate extends Component {
     }
 
     return (
-      <div>
+      <div className='create-page'>
         <CreateDecksForm
           deck={deck}
           handleChange={handleChange}

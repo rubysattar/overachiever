@@ -68,7 +68,7 @@ class Decks extends Component {
 
     return (
       <Fragment>
-        <div className='container'>
+        <div className='container all-decks-page'>
           <div className='row'>
             <Link to='/decks-create'><button>Create a Deck</button></Link>
           </div>
