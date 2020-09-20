@@ -21,12 +21,14 @@ function HomeView () {
   // }
 
   return (
-    <div className='container'>
+    <div className='container home-page-container'>
       <div className='row'>
         <div className='col-sm-12'>
-          <Card>
-            <Card.Title>This is the home view</Card.Title>
-            <Card.Text>where home view stuff will be</Card.Text>
+          <Card className='home-page'>
+            <Card.Title>Are you an overachiever who loves tools to help you get ahead?</Card.Title>
+            <Card.Text>There&apos;s an app for that!<br></br> Welcome to OverAchiever, where you can customize decks of flashcards to help you study anything! Really, anything*!</Card.Text>
+            {/* <img src='../../images/deckhome.jpg' alt=''/> */}
+            {/* <Card.Footer>*The topics of your decks CAN be about whatever you choose... until we place limits on deck topics.</Card.Footer> */}
           </Card>
         </div>
       </div>
