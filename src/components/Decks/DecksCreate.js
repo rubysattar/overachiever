@@ -70,7 +70,7 @@ class DecksCreate extends Component {
           deck={deck}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath='/'
+          cancelPath='/decks/'
         />
       </div>
     )

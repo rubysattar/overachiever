@@ -29,8 +29,8 @@ class DeckUpdate extends Component {
     })
     // data: { deck: this.state.deck }
     //   .then(res => this.setState({ deck: { topic: res.data.deck.topic } }))
-      .then(res => console.log('THIS IS THE', res.data.deck))
-
+      // .then(res => console.log('THIS IS THE', res.data.deck))
+      .then(res => this.setState({ deck: res.data.deck }))
       .then(() => msgAlert({
         heading: 'Success!',
         message: messages.showDeckSuccess,
@@ -94,12 +94,12 @@ class DeckUpdate extends Component {
     return (
       <Fragment>
         <div className='update-page'>
-          <h4>{this.state.deck.topic}</h4>
+          <h4>{deck.topic}</h4>
           <UpdateDeckForm
             deck={deck}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
-            cancelPath={(`/books/${this.props.match.params.id}/`)}
+            cancelPath={(`/decks/${this.props.match.params.id}/`)}
           />
         </div>
       </Fragment>
