@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
@@ -150,19 +150,19 @@ class Deck extends Component {
     // <Link to={`/decks/${this.props.match.params.id}/deck-delete`}><button>Delete this deck</button></Link>
     // {singleDeck}
     return (
-      <Fragment>
-        <div className='container deck-page' key={deck.id}>
-          <div className='row'>
-            <Card className='col-sm-4'>
-              <Card.Title>
-                {deck.topic}
-              </Card.Title>
-            </Card>
-            <Link to='/decks/:id/deck-update'><button>Update this deck</button></Link>
-            <button onClick={this.destroyDeck}>Delete this deck</button>
-          </div>
+      <div className='container deck-page' key={deck.id}>
+        <div className='row'>
+          <Card>
+            <Card.Title className='col-sm-12'>
+              <h4>{deck.topic}</h4>
+            </Card.Title>
+          </Card>
         </div>
-      </Fragment>
+        <div className='row'>
+          <Link className='col-sm-6' to='/decks/:id/deck-update'><button >Update this deck</button></Link>
+          <button onClick={this.destroyDeck} className='col-sm-6'>Delete this deck</button>
+        </div>
+      </div>
     )
   }
 }

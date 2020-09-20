@@ -1,8 +1,65 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-html {
+body {
     background-image: url(./images/BG.png);
+    background-position: 100;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.all-decks-page {
+    color: #000;
+    float: none;
+    // border-radius: 30px;
+    // height: 360px;
+    line-height: 40px;
+    text-align: center;
+    border: 2px lighter;
+    box-sizing: border-box;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: -75px;
+    margin-left: 100px;
+    outline: none;
+    padding: 20px;
+    transition: .5s ease;
+    width: 85%;
+  }
+
+  .deck {
+    background-image: url(./images/deck.png);
+    height: 340px;
+    width: 70%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  h4 {
+      color: black;
+  }
+
+  .deck-title {
+      float: center;
+  }
+
+  button {
+    color: #F3E781;
+    background-color: #C1A9D4;
+    border: 0;
+    // border-radius: 20px;
+    border-width: thin;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    &:hover {
+      color: #B4DDDB;
+    }
 }

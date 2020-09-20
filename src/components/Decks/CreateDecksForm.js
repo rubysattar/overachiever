@@ -14,7 +14,7 @@ const CreateDecksForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
       <Link to={cancelPath}>
         <button>Cancel</button>
       </Link><br/>
-      <Link to='/decks/'>Back to all decks</Link>
+      <Link to='/decks/'><button>Back to all decks</button></Link>
     </Form>
   </div>
 )

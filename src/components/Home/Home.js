@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Card from 'react-bootstrap/Card'
 // import styles from './Home.css'
 
@@ -9,30 +9,28 @@ import Card from 'react-bootstrap/Card'
 // wanted to wrap carousel in bootstrap container and row with a new row underneath to enter content
 
 function HomeView () {
-  const homeStyles = {
-    backgroundImage: 'url(../../images/BG.png)',
-    background: '#B4DDDB',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
+  // const homeStyles = {
+  //   backgroundImage: 'url(../../images/BG.png)',
+  //   background: '#B4DDDB',
+  //   backgroundSize: 'cover',
+  //   backgroundPosition: 'center',
+  //   height: '100vh',
+  //   display: 'flex',
+  //   justifyContent: 'center',
+  //   alignItems: 'center'
+  // }
 
   return (
-    <Fragment>
-      <div className='container' style={homeStyles}>
-        <div className='row'>
-          <div className='col-sm-12'>
-            <Card>
-              <Card.Title>This is the home view</Card.Title>
-              <Card.Text>where home view stuff will be</Card.Text>
-            </Card>
-          </div>
+    <div className='container'>
+      <div className='row'>
+        <div className='col-sm-12'>
+          <Card>
+            <Card.Title>This is the home view</Card.Title>
+            <Card.Text>where home view stuff will be</Card.Text>
+          </Card>
         </div>
       </div>
-    </Fragment>
+    </div>
   )
 }
 

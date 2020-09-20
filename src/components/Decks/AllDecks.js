@@ -8,7 +8,7 @@
 // (REFACTORED COMPONENT THAT HAS JSX FORM TO CREATE THE DECK)
 // CREATE BUTTON SHOULD TRIGGER A MODAL
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
 // import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
@@ -59,24 +59,24 @@ class Decks extends Component {
 
   render () {
     const decks = this.state.decks.map(deck => (
-      <Card key={deck.id} className='col-sm-4'>
+      <Card key={deck.id} className='col-sm-4 deck'>
         <Card.Title>
-          <Link to={`/decks/${deck.id}`}>{deck.topic}</Link>
+          <Link to={`/decks/${deck.id}`} className='deck-title'>{deck.topic}</Link>
         </Card.Title>
       </Card>
     ))
 
     return (
-      <Fragment>
-        <div className='container all-decks-page'>
-          <div className='row'>
-            <Link to='/decks-create'><button>Create a Deck</button></Link>
-          </div>
-          <div className='row'>
-            {decks}
-          </div>
+      // <Fragment className='all-decks-page'>
+      <div className='container all-decks-page'>
+        <div className='row'>
+          <Link to='/decks-create'><button>Create a Deck</button></Link>
         </div>
-      </Fragment>
+        <div className='row'>
+          {decks}
+        </div>
+      </div>
+      // </Fragment>
     )
   }
 }
