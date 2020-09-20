@@ -35,9 +35,9 @@ class Deck extends Component {
       }
     })
     // data: { deck: this.state.deck }
-      .then(res => console.log('THIS IS THE', res.data.deck))
+      // .then(res => console.log('THIS IS THE', res.data.deck))
       // .then(res => this.state.data.concat([ data ]))
-      // .then(res => this.setState({ deck: res.data.deck }))
+      .then(res => this.setState({ deck: res.data.deck }))
       .then(() => msgAlert({
         heading: 'Success!',
         message: messages.showDeckSuccess,
@@ -154,12 +154,14 @@ class Deck extends Component {
     return (
       <div className='container deck-page' key={deck.id}>
         <div className='row'>
-          <Card>
-            <Card.Title className='col-sm-12'>
-              {/* <h4>{this.props.setDeck.params.topic}</h4> */}
+          <Card width='auto' height='auto' className='col-sm-12 deck'>
+            <Card.Title>
+              <h4>{this.state.deck.topic}</h4>
             </Card.Title>
+            <button>Review Cards in this deck</button><br></br>
+            <button>Create Cards for this deck</button>
           </Card>
-        </div>
+        </div><br></br>
         <div className='row'>
           <Link className='col-sm-6' to={`/decks/${this.props.match.params.id}/deck-update`}><button >Update this deck</button></Link>
           <button onClick={this.destroyDeck} className='col-sm-6'>Delete this deck</button>
