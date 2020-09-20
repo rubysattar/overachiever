@@ -11,10 +11,10 @@ const CreateDecksForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
         <Form.Control as="textarea" rows="3" value={deck.topic} name='topic' onChange={handleChange}/>
       </Form.Group>
       <button type='submit'>Submit</button>
-      <Link to={cancelPath}>
+      <Link to='/decks'>
         <button>Cancel</button>
       </Link><br/>
-      <Link to='/decks/'><button>Back to all decks</button></Link>
+      {/* <Link to='/decks/'><button>Back to all decks</button></Link> */}
     </Form>
   </div>
 )

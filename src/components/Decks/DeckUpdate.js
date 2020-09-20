@@ -94,7 +94,7 @@ class DeckUpdate extends Component {
     return (
       <Fragment>
         <div className='update-page'>
-          <h4>{deck.topic}</h4>
+          <h4>{this.state.deck.topic}</h4>
           <UpdateDeckForm
             deck={deck}
             handleChange={handleChange}

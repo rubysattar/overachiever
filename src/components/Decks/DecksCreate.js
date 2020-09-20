@@ -44,6 +44,7 @@ class DecksCreate extends Component {
     })
     //   .then(res => console.log(res))
       .then(res => this.setState({ createdID: res.data.deck._id }))
+      .then(() => this.setState({ edited: true }))
       .then(() => msgAlert({
         heading: `Added ${deck.topic} to decks successfully!`,
         message: messages.addToDeckSuccess,
@@ -53,13 +54,13 @@ class DecksCreate extends Component {
   }
 
   render () {
-    const { deck, createdId } = this.state
+    const { deck, createdId, edited } = this.state
     // pass in edited above if you will use this component to edit too
     const { handleChange, handleSubmit } = this
 
-    if (createdId) {
-    //   return <Redirect to={`/decks/${createdId}`} />
-    // } else if (edited) {
+    if (createdId !== null) {
+      return <Redirect to={`/decks/${createdId}`} />
+    } else if (edited) {
       return <Redirect to={{ pathname: '/decks/' }} />
     }
 
