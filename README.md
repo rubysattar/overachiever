@@ -17,6 +17,7 @@ This application allows users to create, read, update and delete flash cards to 
 
 ## Planning
 - When brainstorming about this project, I considered that I wanted to experiment with using Django and Python on my back-end, so I wanted a fairly simple project concept with which to work. I kept with the theme of a majority of my projects (education) and thought of something I would want to use in a learning environment: flash cards! To plan out the nitty gritty of the front-end, I used a an online Miro board, a physical white board, Figma online, and regular old post-its.
+- When developing the front-end, I ran into bugs on my axios calls and how I was passing along data through the appropriate routes. I used a combination of strategies and dev tools to squash these bugs. On the back end, I printed data that would display on my pthon developer server. On the front-end, I console.logged data to review in my browser console and network dev tools.
 - [Planning](https://imgur.com/Bax5P1E)
 
 ## User Stories
@@ -61,8 +62,8 @@ PATCH | /change-pw
 DELETE | /sign-out
 
 ## Unsolved Problems
-- Still need to...
-- Would eventually like to ...
+- Still need to... route all of my secondary resource (Card) CRUD actions.
+- Would eventually like to... set up animations to 'flip' to the back of a card when scrolling through the modal that reveals all cards one-at-a-time. The modal would include buttons that trigger the 'update' and 'delete' events on a single card as well as a button to trigger the card-flip animation.
 
 ## Images
 #### Wireframes:
