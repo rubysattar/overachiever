@@ -3,8 +3,6 @@ import { Link, Redirect, withRouter } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
 import Card from 'react-bootstrap/Card'
-// import UpdateDeleteDeckForm from './updateDeleteDeckForm'
-// import { showDeck, deleteDeck, editDeck } from '../../api/DecksApi'
 
 // Import axios so we can make HTTP requests
 import axios from 'axios'
@@ -63,35 +61,6 @@ class Deck extends Component {
     })
   }
 
-  // updateDeck = (editedTopic) => {
-  //   const { msgAlert } = this.props
-  //   // this.setState({ redirected: true })
-  //   return axios({
-  //     url: `${apiUrl}/decks/${this.props.user.token}/`,
-  //     method: 'PATCH',
-  //     data: {
-  //       deck: {
-  //         topic: editedTopic
-  //       }
-  //     },
-  //     headers: {
-  //       'Authorization': `Token ${this.props.user.token}`
-  //     }
-  //   })
-  //     .then(res => this.props.setDeck(res.data.deck))
-  //     .then(() => msgAlert({
-  //       heading: 'Edited deck successfully!',
-  //       message: messages.editedDeckSuccess,
-  //       variant: 'success'
-  //     }))
-  //     .catch(error => msgAlert({
-  //       heading: 'Could not edit because: ' + error.message,
-  //       message: messages.editedDeckFailure,
-  //       variant: 'danger'
-  //     })
-  //     )
-  // }
-
   destroyDeck = (deck) => {
     const { msgAlert } = this.props
     axios({
@@ -108,7 +77,7 @@ class Deck extends Component {
         message: messages.deleteDeckSuccess,
         variant: 'success'
       }))
-      .then(console.log('DELETED THE BOOK'))
+      // .then(console.log('DELETED THE BOOK'))
       .then(res => {
         this.props.history.push('/decks')
       })

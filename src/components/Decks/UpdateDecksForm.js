@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 
-// Try to figure out why the form won't show the current deck.topic
 const UpdateDeckForm = ({ deck, handleSubmit, handleChange, cancelPath }) => (
   <div className='update-form'>
     <h4>{deck.topic}</h4><br/>

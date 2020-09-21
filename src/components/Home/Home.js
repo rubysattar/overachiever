@@ -3,23 +3,10 @@ import Card from 'react-bootstrap/Card'
 // import styles from './Home.css'
 
 // image source isn't recognizing path to image in file
-// commented out below is a previous (incorrect) carousel skeleton that
+// commented out below is a previous (incorrect) skeleton that
 // contains live links of the images
 
-// wanted to wrap carousel in bootstrap container and row with a new row underneath to enter content
-
 function HomeView () {
-  // const homeStyles = {
-  //   backgroundImage: 'url(../../images/BG.png)',
-  //   background: '#B4DDDB',
-  //   backgroundSize: 'cover',
-  //   backgroundPosition: 'center',
-  //   height: '100vh',
-  //   display: 'flex',
-  //   justifyContent: 'center',
-  //   alignItems: 'center'
-  // }
-
   return (
     <div className='container home-page-container'>
       <div className='row'>

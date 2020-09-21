@@ -1,12 +1,10 @@
 // THIS IS THE VIEW FOR ALL THE DECKS.
 // IT SHOULD INCLUDE A BUTTON TO 'SHOW' A SINGLE DECK
 // *by clicking into the link of a deck*
-// (A CONST WHERE YOU PASS IN THE API CALL THAT HAS JSX OF THAT CARD)
 
 // IT SHOULD INCLUDE A BUTTON TO 'CREATE' A NEW DECK
 // *outside all decks*
 // (REFACTORED COMPONENT THAT HAS JSX FORM TO CREATE THE DECK)
-// CREATE BUTTON SHOULD TRIGGER A MODAL
 
 import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
@@ -80,5 +78,5 @@ class Decks extends Component {
     )
   }
 }
-// future - wanting to add a create deck button above all decks render
+
 export default Decks
