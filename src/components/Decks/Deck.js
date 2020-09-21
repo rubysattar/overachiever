@@ -137,20 +137,8 @@ class Deck extends Component {
       }} />
     }
 
-    // if (redirected) {
-    //   return <Redirect to={{ pathname: '/decks' }} />
-    // }
-
-    // below was remved from Fragment in return
-    //   <div className='row'>
-    //     {this.state.deck.topic}
-    //   </div>
-    // </div>
-
-    // <Link to={`/decks/${this.props.match.params.id}/deck-delete`}><button>Delete this deck</button></Link>
-    // {singleDeck}
-
-    // Pass the deck object as a prop from (??? the route?) so that I can do something like {deck.topic}
+    // card-related buttons were commented out below so that they only display
+    // when functioning (after all card views function)
     return (
       <div className='container deck-page' key={deck.id}>
         <div className='row'>
@@ -158,8 +146,8 @@ class Deck extends Component {
             <Card.Title>
               <h4>{this.state.deck.topic}</h4>
             </Card.Title>
-            <button>Review Cards in this deck</button><br></br>
-            <button>Create Cards for this deck</button>
+            {/* <button>Review Cards in this deck</button><br></br>
+            <button>Create Cards for this deck</button> */}
           </Card>
         </div><br></br>
         <div className='row'>
