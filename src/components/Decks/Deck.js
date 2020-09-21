@@ -129,7 +129,7 @@ class Deck extends Component {
             <Card.Title>
               <h4>{this.state.deck.topic}</h4>
             </Card.Title>
-            <Link className='col-sm-6' to='/cards'><button>Review Cards in this deck</button></Link><br></br>
+            <Link className='col-sm-6' to='/cards-create'><button>Review Cards in this deck</button></Link><br></br>
             <button>Create Cards for this deck</button>
           </Card>
         </div><br></br>

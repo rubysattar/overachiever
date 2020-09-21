@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Card from 'react-bootstrap/Card'
+// import Card from 'react-bootstrap/Card'
 // import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
@@ -15,7 +15,9 @@ class Cards extends Component {
     super(props)
 
     this.state = {
-      cards: []
+      deck: [{
+        cards: []
+      }]
     }
   }
 
@@ -26,7 +28,8 @@ class Cards extends Component {
       url: (`${apiUrl}/cards/`),
       headers: {
         'Authorization': `Token ${this.props.user.token}`
-      }
+      },
+      data: { deck: this.state.deck }
     })
 
       .then(res => console.log('INDEXED ALL YOUR CARDS!', res.data))
@@ -50,13 +53,13 @@ class Cards extends Component {
   }
 
   render () {
-    const cards = this.state.cards.map(card => (
-      <Card key={card.id} className='col-sm-4 deck'>
-        <Card.Title>
-          <Link to={`/cards/${card.id}`} className='deck-title'>{card.question}</Link>
-        </Card.Title>
-      </Card>
-    ))
+    // const cards = this.state.cards.map(card => (
+    //   <Card key={card.id} className='col-sm-4 deck'>
+    //     <Card.Title>
+    //       <Link to={`/cards/${card.id}`} className='deck-title'>{card.question}</Link>
+    //     </Card.Title>
+    //   </Card>
+    // ))
 
     return (
       // <Fragment className='all-cards-page'>
@@ -65,7 +68,7 @@ class Cards extends Component {
           <Link to='/cards-create'><button>Create a Card</button></Link>
         </div>
         <div className='row'>
-          {cards}
+          {/* {cards} */}
         </div>
       </div>
       // </Fragment>

@@ -4,26 +4,56 @@ import { Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 import CreateCardsForm from './CreateCardsForm'
-// import messages from '../AutoDismissAlert/messages'
+import messages from '../AutoDismissAlert/messages'
 
 class CardsCreate extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      cards: [{
-        card: {
-          question: '',
-          answer: '',
-          created_at: null,
-          updated_at: null,
-          deck_id: '',
-          createdId: null,
-          edited: false
-        }
-      }],
-      deck: ''
+      deck: [{
+        cards: [{
+          card: {
+            question: '',
+            answer: '',
+            created_at: null,
+            updated_at: null,
+            deck_id: '',
+            createdId: null,
+            edited: false
+          }
+        }]
+      }]
     }
+  }
+
+  componentDidMount () {
+    console.log(this.props.match.params.id)
+    const { msgAlert } = this.props
+    axios({
+      url: `${apiUrl}/decks/${this.props.match.params.id}/`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token ${this.props.user.token}`
+      }
+    })
+    // data: { deck: this.state.deck }
+      // .then(res => console.log('THIS IS THE', res.data.deck))
+      // .then(res => this.state.data.concat([ data ]))
+      .then(res => this.setState({ deck: res.data.deck }))
+      .then(() => msgAlert({
+        heading: 'Success!',
+        message: messages.showDeckSuccess,
+        variant: 'success'
+      }))
+      .catch(error => {
+        msgAlert({
+          heading: 'Show Deck Failed' + error.message,
+          message: messages.showDeckFailure,
+          variant: 'danger'
+        })
+      })
+      .catch(console.error)
   }
 
   handleChange = event => {
