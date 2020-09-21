@@ -23,7 +23,7 @@ class Deck extends Component {
     // redirect: false -- removed from state, can put back in if needed
   }
   componentDidMount () {
-    console.log(this.props.match.params.id)
+    // console.log(this.props.match.params.id)
     const { msgAlert } = this.props
     axios({
       url: `${apiUrl}/decks/${this.props.match.params.id}/`,

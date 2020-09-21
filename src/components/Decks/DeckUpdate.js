@@ -72,7 +72,10 @@ class DeckUpdate extends Component {
       }
     })
       .then(() => this.setState({ edited: true }))
-      .then(res => this.setState({ deck: res.data.deck }))
+      // .then(console.log(this.state.deck))
+      // .then(res => this.setState({ deck: res.data.deck }))
+      // console does not recognize res.data above, but somehow
+      // this call does still update the 'deck' state
       .then(() => msgAlert({
         heading: 'Edited your deck successfully!',
         message: messages.editedDeckSuccess,
