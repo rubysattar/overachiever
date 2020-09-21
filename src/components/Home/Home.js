@@ -12,7 +12,7 @@ function HomeView () {
       <div className='row'>
         <div className='col-sm-12'>
           <Card className='home-page'>
-            <Card.Title className='home-page-title'>Are you an overachiever who loves tools to help you get ahead?</Card.Title>
+            <Card.Title className='home-page-title'>Are you an overachiever who loves using tools that help you get ahead?</Card.Title>
             <Card.Text className='home-page-text'>There&apos;s an app for that!<br></br> Welcome to OverAchiever, where you can customize decks of flashcards to help you study anything! Really, anything*!</Card.Text>
             {/* <img src='../../images/deckhome.jpg' alt=''/> */}
             {/* <Card.Footer>*The topics of your decks CAN be about whatever you choose... until we place limits on deck topics.</Card.Footer> */}
