@@ -80,5 +80,4 @@ class Decks extends Component {
     )
   }
 }
-// future - wanting to add a create deck button above all decks render
 export default Decks

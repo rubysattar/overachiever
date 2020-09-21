@@ -63,35 +63,6 @@ class Deck extends Component {
     })
   }
 
-  // updateDeck = (editedTopic) => {
-  //   const { msgAlert } = this.props
-  //   // this.setState({ redirected: true })
-  //   return axios({
-  //     url: `${apiUrl}/decks/${this.props.user.token}/`,
-  //     method: 'PATCH',
-  //     data: {
-  //       deck: {
-  //         topic: editedTopic
-  //       }
-  //     },
-  //     headers: {
-  //       'Authorization': `Token ${this.props.user.token}`
-  //     }
-  //   })
-  //     .then(res => this.props.setDeck(res.data.deck))
-  //     .then(() => msgAlert({
-  //       heading: 'Edited deck successfully!',
-  //       message: messages.editedDeckSuccess,
-  //       variant: 'success'
-  //     }))
-  //     .catch(error => msgAlert({
-  //       heading: 'Could not edit because: ' + error.message,
-  //       message: messages.editedDeckFailure,
-  //       variant: 'danger'
-  //     })
-  //     )
-  // }
-
   destroyDeck = (deck) => {
     const { msgAlert } = this.props
     axios({
@@ -158,7 +129,7 @@ class Deck extends Component {
             <Card.Title>
               <h4>{this.state.deck.topic}</h4>
             </Card.Title>
-            <button>Review Cards in this deck</button><br></br>
+            <Link className='col-sm-6' to='/cards'><button>Review Cards in this deck</button></Link><br></br>
             <button>Create Cards for this deck</button>
           </Card>
         </div><br></br>

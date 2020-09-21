@@ -15,6 +15,11 @@ import Deck from '../Decks/Deck'
 import DeckUpdate from '../Decks/DeckUpdate'
 import DecksCreate from '../Decks/DecksCreate'
 
+import Cards from '../Cards/AllCards'
+import Card from '../Cards/Card'
+import CardUpdate from '../Cards/CardUpdate'
+import CardsCreate from '../Cards/CardsCreate'
+
 class App extends Component {
   constructor () {
     super()
@@ -66,6 +71,7 @@ class App extends Component {
           <Route exact path='/' render={() => (
             <HomeView />
           )} />
+
           <AuthenticatedRoute user={user} exact path='/decks' render={() => (
             <Decks user={user} setDeck={this.setDeck} msgAlert={this.msgAlert}/>
           )}/>
@@ -77,6 +83,19 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/decks/:id' render={({ match }) => (
             <Deck user={user} match={match} msgAlert={this.msgAlert} setDeck={this.setDeck}/>
+          )} />
+
+          <AuthenticatedRoute user={user} exact path='/cards' render={() => (
+            <Cards user={user} setDeck={this.setDeck} msgAlert={this.msgAlert}/>
+          )}/>
+          <AuthenticatedRoute user={user} exact path='/cards-create' render={({ match }) => (
+            <CardsCreate user={user} match={match} msgAlert={this.msgAlert}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/decks/:id/card-update' render={({ match }) => (
+            <CardUpdate user={user} match={match} msgAlert={this.msgAlert} setDeck={this.setDeck}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/cards/:id' render={({ match }) => (
+            <Card user={user} match={match} msgAlert={this.msgAlert} setDeck={this.setDeck}/>
           )} />
         </main>
       </Fragment>
