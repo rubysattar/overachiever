@@ -67,8 +67,9 @@ DELETE | /sign-out
 
 ## Images
 #### Wireframes:
-- [Wireframes](https://imgur.com/5FcImgH)
+![Screen Shot 2020-09-16 at 8 47 36 AM](https://media.git.generalassemb.ly/user/27368/files/17b4c800-fc23-11ea-8114-dca1816082bb)
 #### ERD:
-- [ERD and User Stories](https://imgur.com/tOQRNyn)
+![Screen Shot 2020-09-16 at 8 47 55 AM](https://media.git.generalassemb.ly/user/27368/files/5fd3ea80-fc23-11ea-80d2-f12a73c17bc0)
 #### App screenshots:
-- []()
+![Screen Shot 2020-09-21 at 4 01 44 PM](https://media.git.generalassemb.ly/user/27368/files/eb4d7b80-fc23-11ea-85ef-160e15d7461b)
+![Screen Shot 2020-09-21 at 4 02 04 PM](https://media.git.generalassemb.ly/user/27368/files/f99b9780-fc23-11ea-8a00-16f12b2770f5)
