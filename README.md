@@ -18,7 +18,9 @@ This application allows users to create, read, update and delete flash cards to 
 ## Planning
 - When brainstorming about this project, I considered that I wanted to experiment with using Django and Python on my back-end, so I wanted a fairly simple project concept with which to work. I kept with the theme of a majority of my projects (education) and thought of something I would want to use in a learning environment: flash cards! To plan out the nitty gritty of the front-end, I used a an online Miro board, a physical white board, Figma online, and regular old post-its.
 - When developing the front-end, I ran into bugs on my axios calls and how I was passing along data through the appropriate routes. I used a combination of strategies and dev tools to squash these bugs. On the back end, I printed data that would display on my pthon developer server. On the front-end, I console.logged data to review in my browser console and network dev tools.
-- [Planning](https://imgur.com/Bax5P1E)
+![React_planning_p4](https://media.git.generalassemb.ly/user/27368/files/afb3b100-fc25-11ea-95d6-e254648d6b58)
+
+---
 
 ## User Stories
 1. User must be able to create a new deck
