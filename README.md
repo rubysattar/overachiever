@@ -11,9 +11,9 @@ This application allows users to create, read, update and delete flash cards to 
 6. npm start
 
 ## Important Links
-- [Deployed Api]()
-- [Api Repo]()
-- [Deployed Client]()
+- [Deployed Api](https://overachiever-api.herokuapp.com/)
+- [Api Repo](https://github.com/rubysattar/overachiever-api)
+- [Deployed Client](https://rubysattar.github.io/overachiever/#/)
 
 ## Planning
 - When brainstorming about this project, I considered that I wanted to experiment with using Django and Python on my back-end, so I wanted a fairly simple project concept with which to work. I kept with the theme of a majority of my projects (education) and thought of something I would want to use in a learning environment: flash cards! To plan out the nitty gritty of the front-end, I used a an online Miro board, a physical white board, Figma online, and regular old post-its.
