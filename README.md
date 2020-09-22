@@ -72,6 +72,10 @@ DELETE | /sign-out
 ![Screen Shot 2020-09-16 at 8 47 36 AM](https://media.git.generalassemb.ly/user/27368/files/17b4c800-fc23-11ea-8114-dca1816082bb)
 #### ERD:
 ![Screen Shot 2020-09-16 at 8 47 55 AM](https://media.git.generalassemb.ly/user/27368/files/5fd3ea80-fc23-11ea-80d2-f12a73c17bc0)
-#### App screenshots:
+#### Current App Screenshots:
+![Screen Shot 2020-09-21 at 8 31 15 PM](https://media.git.generalassemb.ly/user/27368/files/902e7f80-fc49-11ea-8947-2c82e5abc78a)
+![Screen Shot 2020-09-21 at 8 03 27 PM](https://media.git.generalassemb.ly/user/27368/files/afc5a800-fc49-11ea-9cfd-2619c6573a1c)
+
+#### Original App screenshots:
 ![Screen Shot 2020-09-21 at 4 01 44 PM](https://media.git.generalassemb.ly/user/27368/files/eb4d7b80-fc23-11ea-85ef-160e15d7461b)
 ![Screen Shot 2020-09-21 at 4 02 04 PM](https://media.git.generalassemb.ly/user/27368/files/f99b9780-fc23-11ea-8a00-16f12b2770f5)
