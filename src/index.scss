@@ -2,11 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-    background-image: url(./images/BG.png);
+    background-image: url(./images/lightbulb.jpg);
+    // background-image: url(./images/BG.png);
     background-position: 100;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Montserrat', sans-serif;
+    // color: black;
+    // text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .all-decks-page {
@@ -48,7 +51,8 @@ body {
 
   button {
     color: #F3E781;
-    background-color: #C1A9D4;
+    background-color: #D9BCB8;
+    // background-color: #C1A9D4;
     border: 0;
     // border-radius: 20px;
     border-width: thin;
@@ -66,17 +70,25 @@ body {
 
 .home-page {
   background-color: #C1A9D4;
+  background: none;
+  // background-image: url(./components/Home/pinkstudy.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   margin: 0 auto;
   padding: 30px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(2, 2, 2, 0.19);
 }
 
 .home-page-container {
-    margin: 20px auto;
+    margin: 50px auto;
+    padding: 30px;
 }
 
 .home-page-text, .home-page-title {
   background-color: #B4DDDB;
+  backdrop-filter: blur(30px);
+  background: linear-gradient(rgba(129, 164, 175, 0.6),rgba(121, 118, 118, 0.1));
   padding: 30px;
 }
